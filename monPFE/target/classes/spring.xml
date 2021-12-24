@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"https://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+  <bean id="controller" class="cigma.pfe.contollers.ClientController" scope="prototype">
+	<constructor-arg ref="service"/>
+  </bean>
+  <bean id="service" class="cigma.pfe.services.ClientServiceImpl" scope="prototype">
+    <constructor-arg ref="repository"/>
+   </bean>
+    <bean id="repository" class="cigma.pfe.repository.ClientRepositoryImpl" scope="prototype">
+    </bean>
+    
+
+</beans>
