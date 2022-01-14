@@ -8,6 +8,12 @@ public class ClientServiceImpl implements ClientService {
 
 	ClientRepository clientRepository;
 
+	
+	public ClientServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ClientServiceImpl(ClientRepository clientRepository) {
 		this.clientRepository = clientRepository;
 		System.out.println("Call ClientServiceImpl ....");
