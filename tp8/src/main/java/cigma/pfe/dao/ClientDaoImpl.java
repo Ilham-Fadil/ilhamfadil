@@ -6,7 +6,6 @@ import javax.persistence.Persistence;
 import cigma.pfe.models.Client;
 
 public class ClientDaoImpl implements IClientDao{
-	IClientDao iClientDao;
 
     EntityManagerFactory emf= Persistence.createEntityManagerFactory("unit_clients");
     EntityManager em =emf.createEntityManager();
@@ -21,13 +20,11 @@ public class ClientDaoImpl implements IClientDao{
         return null;
     }
 
-    public ClientDaoImpl(IClientDao iClientDao){
-        this.iClientDao=iClientDao;
-    }
-
     public ClientDaoImpl(){}
 
-    public IClientDao getIClientDao() {
-        return iClientDao;
-    }
+	@Override
+	public Client update(Client c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

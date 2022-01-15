@@ -6,22 +6,21 @@ import cigma.pfe.models.Client;
 public class ClientServiceImpl implements IClientService{
 	IClientDao iClientDao;
 	
-	public ClientServiceImpl(IClientDao IClientDao){
-        this.iClientDao = IClientDao;
+	public ClientServiceImpl(IClientDao iClientDao){
+        this.iClientDao = iClientDao;
     }
-
-    public ClientServiceImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public IClientDao getiClientDao() {
         return iClientDao;
     }
 	@Override
 	public Client save(Client c) {
-		// TODO Auto-generated method stub
-		return null;
+		return iClientDao.save(c);
+	}
+
+	@Override
+	public Client update(Client c) {
+		return iClientDao.update(c);
 	}
 
 }

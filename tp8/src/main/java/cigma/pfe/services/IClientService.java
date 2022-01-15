@@ -3,6 +3,6 @@ package cigma.pfe.services;
 import cigma.pfe.models.Client;
 
 public interface IClientService {
-	public Client save(Client c);
-  //  public IClientDao getiClientDao();
+	Client save(Client c);
+	Client update(Client c);
 }

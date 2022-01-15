@@ -6,6 +6,13 @@ import cigma.pfe.services.*;
 public class ClientController {
 	IClientService iClientService;
 
+	public IClientService getiClientService() {
+		return iClientService;
+	}
+
+	public void setiClientService(IClientService iClientService) {
+		this.iClientService = iClientService;
+	}
 
 	public ClientController() {
 		super();
@@ -18,6 +25,10 @@ public class ClientController {
 
 	public Client save(Client c) {
 		return iClientService.save(c);
+	}
+
+	public Client update(Client c) {
+		return iClientService.update(c);
 	}
 
 	public IClientService getIClientService() {
