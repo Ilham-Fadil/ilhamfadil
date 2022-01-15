@@ -11,7 +11,7 @@ public class MonApp {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		ClientController ctrl = (ClientController) context.getBean("controller");
-		Client clt = new Client("Anass");
-		ctrl.save(clt);
+		Client clt = new Client("ilham");
+		//ctrl.save(clt);
 	}
 }

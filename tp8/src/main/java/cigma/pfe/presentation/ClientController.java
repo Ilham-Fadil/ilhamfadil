@@ -27,8 +27,8 @@ public class ClientController {
 		return iClientService.save(c);
 	}
 
-	public Client update(Client c) {
-		return iClientService.update(c);
+	public Client update() {
+		return iClientService.update();
 	}
 
 	public IClientService getIClientService() {

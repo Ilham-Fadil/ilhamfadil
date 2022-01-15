@@ -19,8 +19,8 @@ public class ClientServiceImpl implements IClientService{
 	}
 
 	@Override
-	public Client update(Client c) {
-		return iClientDao.update(c);
+	public Client update() {
+		return iClientDao.update();
 	}
 
 }

@@ -23,8 +23,12 @@ public class ClientDaoImpl implements IClientDao{
     public ClientDaoImpl(){}
 
 	@Override
-	public Client update(Client c) {
-		// TODO Auto-generated method stub
+	public Client update() {
+		Client c = em.find(Client.class, 1);
+		em.getTransaction().begin();
+		c.setName("ilham");
+        em.getTransaction().commit();
+
 		return null;
 	}
 }
