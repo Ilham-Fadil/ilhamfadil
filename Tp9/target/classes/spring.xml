@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
-"https://www.springframework.org/dtd/spring-beans-2.0.dtd">
-<beans>
-	<bean id="ctrl" class="ma.gov.tp8.controllers.ClientController">
-	<constructor-arg ref="service"/>
-  </bean>
- <bean id="service" class="ma.gov.tp8.Services.ClientService">
-    <constructor-arg ref="dao"/>
-  </bean>
-  <bean id="dao" class="ma.gov.tp8.DAO.ClientDAO"/>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<tx:annotation-driven />
+	<context:component-scan base-package="ma.gov.tp8.DAO"/>
+	<context:component-scan base-package="ma.gov.tp8.Services" />
+	<context:component-scan base-package="ma.gov.tp8.controllers" />
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+      <property name="persistenceUnitName" value="clients" />
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+      <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
 </beans>

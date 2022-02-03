@@ -1,10 +1,16 @@
 package cigma.pfe.contollers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import cigma.pfe.models.Client;
 import cigma.pfe.services.ClientService;
 import cigma.pfe.services.ClientServiceImpl;
 
+@Component
+
 public class ClientController {
+	@Autowired
 	ClientService clientService;
 	
 

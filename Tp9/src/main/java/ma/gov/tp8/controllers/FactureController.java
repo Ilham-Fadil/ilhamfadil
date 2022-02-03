@@ -3,21 +3,21 @@ package ma.gov.tp8.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import ma.gov.tp8.Services.IService;
 import ma.gov.tp8.models.Facture;
 
+
+@Controller("ctrl1")
 public class FactureController {
+	
 	@Autowired
 	IService<Facture> service;
 
 	public FactureController() {
-		
-	}
-
-	public FactureController(IService<Facture> service) {
 		super();
-		this.service = service;
+		// TODO Auto-generated constructor stub
 	}
 	public List<Facture> findAll() {
 		// TODO Auto-generated method stub

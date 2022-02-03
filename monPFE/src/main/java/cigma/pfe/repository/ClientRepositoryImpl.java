@@ -2,6 +2,7 @@ package cigma.pfe.repository;
 
 import cigma.pfe.models.Client;
 
+
 public class ClientRepositoryImpl implements ClientRepository {
 	
 	public ClientRepositoryImpl() {

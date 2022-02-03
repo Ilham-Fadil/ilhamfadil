@@ -3,13 +3,17 @@ package ma.gov.tp8.DAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
 
 import ma.gov.tp8.models.Client;
 
+@Repository
 public  class ClientDAO implements IClientDAO {
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("clients");
-	EntityManager em = emf.createEntityManager();
+	@PersistenceContext
+	private EntityManager em;
 
 	public ClientDAO() {
 		System.out.println("Call ClientRepositoryImpl ....");
@@ -17,36 +21,27 @@ public  class ClientDAO implements IClientDAO {
 
 	@Override
 	public Client save(Client c) {
-		em.getTransaction().begin();
 		em.persist(c);
-		em.getTransaction().commit();
 		return null;
 	}
 
 	@Override
 	public Client findById() {
-		em.getTransaction().begin();
 		Client c = em.find(Client.class, 1L);
 		System.out.println("client Id : " + c.getId() + " Nom : " + c.getName());
-		em.getTransaction().commit();
 		return c;
 	}
 	@Override
 	public void update() {
-		
 		Client c =findById();
 		System.out.println("client Id : " + c.getId() + " Nom : " + c.getName());
-		em.getTransaction().begin();
 		c.setName("imane");
-		em.getTransaction().commit();
-	}
+		}
 
 	@Override
 	public void remove() {
 		Client c =findById();
-		em.getTransaction().begin();
 		em.remove(c);
-		em.getTransaction().commit();
 	}
 
 
